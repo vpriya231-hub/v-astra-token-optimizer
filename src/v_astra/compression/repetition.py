@@ -20,3 +20,8 @@ def collapse_consecutive_duplicates(content: str, minimum_repeats: int = 3) -> s
             result.extend(lines[i:j])
         i = j
     return "\n".join(result)
+
+def compress_repetition(content: str) -> str:
+    """Apply the existing repetition compression passes."""
+    result = remove_excessive_blank_lines(content)
+    return collapse_consecutive_duplicates(result)
