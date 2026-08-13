@@ -1,12 +1,8 @@
-# V-Astra Token Optimizer
 
 Open-source context and token optimization engine for AI coding agents.
 
 **License:** Apache-2.0  
-**Status:** Phase 2 — Working Optimization Engine
-
-Phase 2 provides repeated-content compression, JSON compaction, safe fallback, retention checks, token/savings reporting, and a local CLI.
-
+**Status:** Phase 3 — Context Packing & Recovery
 ```bash
 python -m venv .venv
 source .venv/bin/activate
