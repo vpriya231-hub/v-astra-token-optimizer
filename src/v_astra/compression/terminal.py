@@ -1,3 +1,3 @@
+from .repetition import collapse_consecutive_duplicates
 def compress_terminal_output(content: str) -> str:
-    # Phase 2 will preserve commands/errors while collapsing noisy output.
-    return content
+    return collapse_consecutive_duplicates(content)

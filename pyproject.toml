@@ -4,18 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "v-astra-token-optimizer"
-version = "0.1.0a1"
+version = "0.2.0a1"
 description = "Context and token optimization engine for AI coding agents."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
-authors = [
-  { name = "V-Astra Token Optimizer contributors" }
-]
+authors = [{ name = "V-Astra Token Optimizer contributors" }]
 dependencies = []
 
 [project.scripts]
 vastra = "v_astra.cli.main:main"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]

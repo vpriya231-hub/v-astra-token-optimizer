@@ -1,3 +1,3 @@
+from .repetition import remove_excessive_blank_lines
 def compress_code(content: str) -> str:
-    # Code-aware transformations begin in Phase 2.
-    return content
+    return remove_excessive_blank_lines(content)

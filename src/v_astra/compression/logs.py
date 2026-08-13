@@ -1,3 +1,3 @@
+from .repetition import collapse_consecutive_duplicates
 def compress_logs(content: str) -> str:
-    # Phase 2 will add repeated-stacktrace and duplicate-line collapsing.
-    return content
+    return collapse_consecutive_duplicates(content)

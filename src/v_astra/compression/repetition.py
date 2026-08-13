@@ -1,15 +1,22 @@
 def remove_excessive_blank_lines(content: str) -> str:
-    lines = content.splitlines()
-    result: list[str] = []
-    blank_seen = False
-
-    for line in lines:
+    result, blank = [], False
+    for line in content.splitlines():
         if not line.strip():
-            if blank_seen:
-                continue
-            blank_seen = True
-        else:
-            blank_seen = False
+            if blank: continue
+            blank = True
+        else: blank = False
         result.append(line)
+    return "\n".join(result)
 
+def collapse_consecutive_duplicates(content: str, minimum_repeats: int = 3) -> str:
+    lines, result, i = content.splitlines(), [], 0
+    while i < len(lines):
+        j = i + 1
+        while j < len(lines) and lines[j] == lines[i]: j += 1
+        count = j - i
+        if count >= minimum_repeats and lines[i].strip():
+            result.append(f"{lines[i]} [x{count}]")
+        else:
+            result.extend(lines[i:j])
+        i = j
     return "\n".join(result)

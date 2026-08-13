@@ -1,8 +1,11 @@
 # Changelog
 
-## Unreleased
+## 0.2.0a1 — Phase 2
+- Added working optimization pipeline.
+- Added repeated-content compression and JSON compaction.
+- Added safe retention checks and fallback.
+- Added `analyze`, `optimize`, and `benchmark` CLI commands.
+- Added Phase 2 tests.
 
-### Phase 1
-- Defined V-Astra Token Optimizer architecture.
-- Added initial project foundation.
-- Defined safety and benchmark principles.
+## 0.1.0a1 — Phase 1
+- Initial architecture and project foundation.

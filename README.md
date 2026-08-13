@@ -3,31 +3,19 @@
 Open-source context and token optimization engine for AI coding agents.
 
 **License:** Apache-2.0  
-**Status:** Phase 1 — Architecture & Project Foundation
+**Status:** Phase 2 — Working Optimization Engine
 
-## Vision
+Phase 2 provides repeated-content compression, JSON compaction, safe fallback, retention checks, token/savings reporting, and a local CLI.
 
-V-Astra Token Optimizer reduces unnecessary AI context while preserving the information required to complete a task correctly.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+vastra analyze example.txt
+vastra optimize example.txt -o optimized.txt
+vastra benchmark example.txt
+```
 
-The project is designed around five principles:
+Token reduction alone is not considered success: safe mode preserves critical information and falls back to the original content when retention is insufficient.
 
-1. Reduce tokens without blindly truncating context.
-2. Rank context by task relevance.
-3. Preserve critical code, errors, commands, diffs, and constraints.
-4. Measure savings and information retention separately.
-5. Fail safely by returning original content when optimization is uncertain.
-
-## Planned integrations
-
-- Claude Code
-- Gemini CLI
-- OpenAI Codex
-- Cursor
-- Cline
-- Generic/MCP-compatible workflows
-
-## Project status
-
-Phase 1 defines the architecture, module boundaries, safety model, and benchmark strategy.
-
-Implementation begins in Phase 2.
+Roadmap: exact tokenizer backends → repository-aware context ranking → tool-output optimization → provider/MCP integrations.
