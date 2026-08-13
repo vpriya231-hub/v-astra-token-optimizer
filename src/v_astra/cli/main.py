@@ -1,3 +1,4 @@
+from .claude import run as claude_run
 import argparse
 from .analyze import run as analyze_run
 from .benchmark import run as benchmark_run
@@ -18,6 +19,7 @@ def build_parser():
     c = sub.add_parser("pack", help="pack multiple context files into a token budget"); c.add_argument("paths", nargs="+"); c.add_argument("--budget", type=int, required=True); c.add_argument("-o","--output")
     r = sub.add_parser("recover", help="recover original content from a V-Astra handle"); r.add_argument("handle"); r.add_argument("-o","--output")
     x = sub.add_parser("compare", help="compare Phase 2 and Phase 3 optimization"); x.add_argument("path")
+    h = sub.add_parser("claude-hook", help="optimize a Claude Code hook JSON payload")
     return p
 
 def main():
@@ -28,6 +30,7 @@ def main():
     if a.command == "shrink-tools": raise SystemExit(shrink_tools_run(a.path,a.output))
     if a.command == "pack": raise SystemExit(pack_run(a.paths,a.budget,a.output))
     if a.command == "recover": raise SystemExit(recover_run(a.handle,a.output))
+    if a.command == "claude-hook": raise SystemExit(claude_run())
     raise SystemExit(compare_run(a.path))
 
 if __name__ == "__main__": main()
